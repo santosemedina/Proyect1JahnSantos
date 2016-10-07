@@ -18,8 +18,8 @@ public class MyPanel extends JPanel {
 	public int mouseDownGridY = 0;
 	public Color[][] colorArray = new Color[TOTAL_COLUMNS][TOTAL_ROWS];
 	public Integer[][] numbersArray = new Integer[TOTAL_COLUMNS][TOTAL_ROWS];
-	
-	
+
+
 	public MyPanel() {   //This is the constructor... this code runs first to initialize
 		if (INNER_CELL_SIZE + (new Random()).nextInt(1) < 1) {	//Use of "random" to prevent unwanted Eclipse warning
 			throw new RuntimeException("INNER_CELL_SIZE must be positive!");
@@ -35,7 +35,7 @@ public class MyPanel extends JPanel {
 				colorArray[x][y] = Color.GRAY;
 			}
 		}
-		
+
 		for (int i = 0; i < TOTAL_COLUMNS; i++){
 			for (int j = 0; j < TOTAL_ROWS; j++){
 				numbersArray[i][j] = 0;
@@ -70,21 +70,33 @@ public class MyPanel extends JPanel {
 		//Paint cell colors
 		for (int x = 0; x < TOTAL_COLUMNS; x++) {
 			for (int y = 0; y < TOTAL_ROWS; y++) {
-					Color c = colorArray[x][y];
-					g.setColor(c);
-					g.fillRect(x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 1, INNER_CELL_SIZE, INNER_CELL_SIZE);
+				Color c = colorArray[x][y];
+				g.setColor(c);
+				g.fillRect(x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 1, INNER_CELL_SIZE, INNER_CELL_SIZE);
 			}
 		}
+
+		//Show numbers all numbers
+		//		for (int x = 0; x < TOTAL_COLUMNS; x++) {
+		//			for (int y = 0; y < TOTAL_ROWS; y++) {
+		//				Integer d = numbersArray[x][y];
+		//				g.setColor(Color.GRAY);
+		//				g.drawString(String.valueOf(d),x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 29);
+		//			}
+		//		}
+
 		
-		//Show numbers
 		for (int x = 0; x < TOTAL_COLUMNS; x++) {
 			for (int y = 0; y < TOTAL_ROWS; y++) {
 				Integer d = numbersArray[x][y];
-				g.setColor(Color.BLACK);
-				g.drawString(String.valueOf(d),x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 29);
+				g.setColor(Color.GRAY);
+
+				if (d > 0 && d < 9){
+					g.drawString(String.valueOf(d),x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 29);
+				}
 			}
 		}
-		
+
 	}
 	public int getGridX(int x, int y) {
 		Insets myInsets = getInsets();

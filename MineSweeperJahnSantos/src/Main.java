@@ -1,18 +1,21 @@
+import java.awt.Color;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Main {
 	public static void main(String[] args) {
-		JFrame myFrame = new JFrame("Color Grid");
+		JFrame myFrame = new JFrame("MineSweeper RETRO");
 		myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		myFrame.setLocation(400, 150);
 		myFrame.setSize(400, 400);
 
 		MyPanel myPanel = new MyPanel();
 		myFrame.add(myPanel);
-
-		//Place Random Bombs set by number 9
+		
+	
+		//Place Random Bombs set by number 9 
 		for (int i = 0; i < 10; i++){
 			for (int j = 0; j < 10; j++){
 				Random rand = new Random();
@@ -22,7 +25,7 @@ public class Main {
 				}
 			}
 		}
-
+		
 		//Assign proximity numbers
 		for (int i = 0; i < 10; i++){
 			for (int j = 0; j < 10; j++){
@@ -81,7 +84,7 @@ public class Main {
 						}
 						myPanel.numbersArray[i][j] = counter;
 					}
-					if(i == 0 && j > 1 && j < 9){
+					if(i == 0 && j > 0 && j < 9){
 						//Looking in left border and not looking at corners
 						if (myPanel.numbersArray[i][j-1] == 9){
 							counter++;
@@ -100,7 +103,7 @@ public class Main {
 						}
 						myPanel.numbersArray[i][j] = counter;
 					}
-					if(j == 0 && i > 1 && i < 9){
+					if(j == 0 && i > 0 && i < 9){
 						//Looking in top border and not looking at corners
 						if (myPanel.numbersArray[i-1][j] == 9){
 							counter++;
@@ -119,7 +122,7 @@ public class Main {
 						}
 						myPanel.numbersArray[i][j] = counter;
 					}
-					if(i == 9 && j > 1 && j < 9){
+					if(i == 9 && j > 0 && j < 9){
 						//Looking in right border and not looking at corners
 						if (myPanel.numbersArray[i][j-1] == 9){
 							counter++;
@@ -138,7 +141,7 @@ public class Main {
 						}
 						myPanel.numbersArray[i][j] = counter;
 					}
-					if(j == 9 && i > 1 && i < 9){
+					if(j == 9 && i > 0 && i < 9){
 						//Looking in bottom border and not looking at corners
 						if (myPanel.numbersArray[i-1][j] == 9){
 							counter++;
@@ -157,7 +160,7 @@ public class Main {
 						}
 						myPanel.numbersArray[i][j] = counter;
 					}
-					if (i > 1 && i < 9 && j > 1 && j < 9){
+					if (i > 0 && i < 9 && j > 0 && j < 9){
 						//Look in rest of the body
 						if (myPanel.numbersArray[i-1][j-1] == 9){
 							counter++;
@@ -188,6 +191,7 @@ public class Main {
 				}
 			}
 		}
+		
 
 
 
@@ -195,5 +199,8 @@ public class Main {
 		myFrame.addMouseListener(myMouseAdapter);
 
 		myFrame.setVisible(true);
+		
+		
+		
 	}
 }
