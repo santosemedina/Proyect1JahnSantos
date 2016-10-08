@@ -1,6 +1,6 @@
 // CIIC4010 Advanced Programming
 // Project 1 : MineSweeper RETRO
-//Jahn Carlo Marrero and Santos E. Medina
+//Jahn Carlo Marrero  and Santos E. Medina
 // October/14/2016
 // 
 
