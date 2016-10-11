@@ -17,7 +17,7 @@ public class MyPanel extends JPanel {
 	private static final int GRID_Y = 25;
 	private static final int INNER_CELL_SIZE = 29;
 	private static final int TOTAL_COLUMNS = 10;
-	private static final int TOTAL_ROWS = 10;   //Last row has only one cell
+	private static final int TOTAL_ROWS = 10;   
 	public int x = -1;
 	public int y = -1;
 	public int mouseDownGridX = 0;
@@ -91,17 +91,32 @@ public class MyPanel extends JPanel {
 		//			}
 		//		}
 
-		
+
 		for (int x = 0; x < TOTAL_COLUMNS; x++) {
 			for (int y = 0; y < TOTAL_ROWS; y++) {
 				Integer d = numbersArray[x][y];
-				g.setColor(Color.GRAY);
+				if (colorArray[x][y] == Color.WHITE){
+					g.setColor(Color.GRAY);
 
-				if (d > 0 && d < 9){
-					g.drawString(String.valueOf(d),x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 29);
+					if (d > 0 && d < 9){
+						g.drawString(String.valueOf(d),x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + (29/2), y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 25);
+					}
 				}
 			}
 		}
+		
+		//Bomb Counter
+		int bombCounter = 0;
+		for (int x = 0; x < TOTAL_COLUMNS; x++) {
+			for (int y = 0; y < TOTAL_ROWS; y++) {
+				if (numbersArray[x][y] == 9){
+					bombCounter++;
+				}
+			}
+		}
+		
+		g.setColor(Color.BLACK);
+		g.drawString(String.valueOf(bombCounter) + " bombs", 300, 340);
 
 	}
 	public int getGridX(int x, int y) {

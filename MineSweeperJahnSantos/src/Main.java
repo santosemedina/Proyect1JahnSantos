@@ -8,6 +8,7 @@
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class Main {
@@ -20,6 +21,7 @@ public class Main {
 		MyPanel myPanel = new MyPanel();
 		myFrame.add(myPanel);
 		
+		int bombCounter = 0;
 	
 		//Place Random Bombs set by number 9 
 		for (int i = 0; i < 10; i++){
@@ -28,6 +30,7 @@ public class Main {
 				int randomNum = rand.nextInt((10) + 1);
 				if (randomNum == 1){
 					myPanel.numbersArray[i][j] = 9;
+					bombCounter++;
 				}
 			}
 		}
@@ -198,8 +201,8 @@ public class Main {
 			}
 		}
 		
-
-
+		
+		JOptionPane.showMessageDialog(null, "The number of bombs generated for this game is " + bombCounter, "MineSweeper -2.0 (Retro)", JOptionPane.INFORMATION_MESSAGE);
 
 		MyMouseAdapter myMouseAdapter = new MyMouseAdapter();
 		myFrame.addMouseListener(myMouseAdapter);
