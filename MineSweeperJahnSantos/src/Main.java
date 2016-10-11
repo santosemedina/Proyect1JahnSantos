@@ -32,7 +32,7 @@ public class Main {
 			}
 		}
 		
-		//Assign proximity numbers
+		//Assign proximity numbers 
 		for (int i = 0; i < 10; i++){
 			for (int j = 0; j < 10; j++){
 				//Do only if there is not a bomb already:
