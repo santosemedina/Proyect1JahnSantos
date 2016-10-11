@@ -4,11 +4,11 @@
 // October/14/2016
 // 
 
-import java.awt.Color;
+
 import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -32,7 +32,7 @@ public class Main {
 			}
 		}
 		
-		//Assign proximity numbers
+		//Assign proximity numbers 
 		for (int i = 0; i < 10; i++){
 			for (int j = 0; j < 10; j++){
 				//Do only if there is not a bomb already:
