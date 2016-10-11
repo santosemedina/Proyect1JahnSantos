@@ -263,7 +263,7 @@ public class MyMouseAdapter extends MouseAdapter {
 						//If we clicked 9
 						if (myPanel.numbersArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] == 9){
 							//If there is a bomb, show red
-							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.RED;
+							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.BLACK;
 							myPanel.repaint();
 							JOptionPane.showMessageDialog(null, "YOU LOOSE", "MineSweeper -2.0 (Retro)", JOptionPane.INFORMATION_MESSAGE);
 							System.exit(0);
@@ -335,9 +335,9 @@ public class MyMouseAdapter extends MouseAdapter {
 						//Do nothing
 					} else {
 						if (myPaneld.colorArray[myPaneld.mouseDownGridX][myPaneld.mouseDownGridY] == Color.GRAY){
-							myPaneld.colorArray[myPaneld.mouseDownGridX][myPaneld.mouseDownGridY] = Color.GREEN;
+							myPaneld.colorArray[myPaneld.mouseDownGridX][myPaneld.mouseDownGridY] = Color.RED;
 						}
-						else if(myPaneld.colorArray[myPaneld.mouseDownGridX][myPaneld.mouseDownGridY] == Color.GREEN){
+						else if(myPaneld.colorArray[myPaneld.mouseDownGridX][myPaneld.mouseDownGridY] == Color.RED){
 							myPaneld.colorArray[myPaneld.mouseDownGridX][myPaneld.mouseDownGridY] = Color.GRAY;
 						}
 					}
